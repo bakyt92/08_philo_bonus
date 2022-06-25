@@ -1,5 +1,16 @@
-#include "../philo_bonus.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ufitzhug <ufitzhug@student.21-school.ru    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/25 16:11:22 by ufitzhug          #+#    #+#             */
+/*   Updated: 2022/06/25 16:16:28 by ufitzhug         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "../philo_bonus.h"
 
 static int	ft_subatoi(const char *str, int i, int znak)
 {
@@ -45,5 +56,3 @@ int	ft_atoi(const char *str)
 	res = ft_subatoi (str, i, znak);
 	return (res);
 }
-
-

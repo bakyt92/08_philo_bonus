@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_init_data.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ufitzhug <ufitzhug@student.21-school.ru    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/25 16:11:43 by ufitzhug          #+#    #+#             */
+/*   Updated: 2022/06/25 16:17:52 by ufitzhug         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../philo_bonus.h"
 
 int	ft_init_data(t_args *args)
@@ -14,7 +26,8 @@ int	ft_init_data(t_args *args)
 	if (!args->philosophers)
 		return (1);
 	if (args->forks_all == SEM_FAILED || args->printing == SEM_FAILED
-			|| args->lt_eating == SEM_FAILED || args->number_of_diners == SEM_FAILED)
+		|| args->lt_eating == SEM_FAILED
+		|| args->number_of_diners == SEM_FAILED)
 		return (1);
 	else
 		return (0);
