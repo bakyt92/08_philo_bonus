@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_simulation.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ufitzhug <ufitzhug@student.21-school.ru    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/25 16:19:46 by ufitzhug          #+#    #+#             */
+/*   Updated: 2022/06/25 16:22:53 by ufitzhug         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../philo_bonus.h"
 
 static void	ft_one_philosopher(t_args *args)
@@ -12,8 +24,11 @@ static void	ft_one_philosopher(t_args *args)
 	sem_post(args->forks_all);
 	exit (0);
 }
+
 void	ft_eating(t_args *args)
 {
+	long long	timestamp;
+
 	sem_wait(args->forks_all);
 	sem_wait(args->printing);
 	ft_print_data("%lld %zu has taken a fork\n", args);
@@ -26,7 +41,8 @@ void	ft_eating(t_args *args)
 	ft_print_data("%lld %zu is eating\n", args);
 	sem_post(args->printing);
 	sem_wait(args->lt_eating);
-	ft_current_time(&(args->time_last_diner));
+	ft_current_time(&timestamp);
+	args->time_last_diner = timestamp;
 	sem_post(args->lt_eating);
 	args->min_each_eat++;
 	if (args->number_dining > 0)
@@ -35,10 +51,7 @@ void	ft_eating(t_args *args)
 			sem_post(args->number_of_diners);
 	}
 	ft_smart_sleep(args->time_eat);
-	sem_post(args->forks_all);
-	sem_post(args->forks_all);
 }
-
 
 void	ft_sleeping(t_args *args)
 {
@@ -70,6 +83,8 @@ int	ft_philo_simulation(t_args *args)
 	while (1)
 	{
 		ft_eating(args);
+		sem_post(args->forks_all);
+		sem_post(args->forks_all);
 		ft_sleeping(args);
 		ft_thinking(args);
 	}

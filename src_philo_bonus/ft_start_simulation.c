@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_start_simulation.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ufitzhug <ufitzhug@student.21-school.ru    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/25 16:18:49 by ufitzhug          #+#    #+#             */
+/*   Updated: 2022/06/25 16:18:50 by ufitzhug         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../philo_bonus.h"
 
 int	ft_print_data(char *text, t_args *alldata)
@@ -12,7 +24,7 @@ int	ft_print_data(char *text, t_args *alldata)
 
 int	ft_start_simulation(t_args *args)
 {
-	int	id;
+	size_t	id;
 
 	id = 0;
 	ft_current_time(&(args->start_time));
@@ -30,8 +42,8 @@ int	ft_start_simulation(t_args *args)
 			ft_philo_simulation(args);
 		if (args->philosophers[id] == -1)
 			return (1);
+		id++;
 	}
 	waitpid(-1, NULL, 0);
 	return (0);
 }
-

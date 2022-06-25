@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo_bonus.h                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ufitzhug <ufitzhug@student.21-school.ru    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/25 16:16:07 by ufitzhug          #+#    #+#             */
+/*   Updated: 2022/06/25 16:16:09 by ufitzhug         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PHILO_BONUS_H
 # define PHILO_BONUS_H
 
@@ -55,7 +67,7 @@ void	ft_current_time(long long *current);
 
 /*monitoring*/
 void	ft_check_number_dining(t_args *args);
-int		ft_monitoring(void *args);
+void	*ft_monitoring(void *args);
 void	ft_exit(t_args *args);
 
 #endif
