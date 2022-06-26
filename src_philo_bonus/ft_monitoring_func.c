@@ -44,7 +44,7 @@ void	*ft_monitoring(void *args)
 			break ;
 		}
 		sem_post(alldata->lt_eating);
-		usleep(150);
+		usleep(100);
 	}
 	exit(0);
 	return (NULL);

@@ -44,8 +44,8 @@ void	ft_eating(t_args *args)
 	ft_current_time(&timestamp);
 	args->time_last_diner = timestamp;
 	sem_post(args->lt_eating);
-	args->min_each_eat++;
-	if (args->number_dining > 0)
+	args->number_dining++;
+	if (args->min_each_eat > 0)
 	{
 		if (args->min_each_eat == args->number_dining)
 			sem_post(args->number_of_diners);
